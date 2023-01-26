@@ -5,17 +5,26 @@ body {
     color: white;
     font-family: 'Rajdhani', sans-serif;
     font-weight: bold;
-    font-size: 25px;
-    padding: 10%;
+    font-size: 24px;
+    padding: 8%;
     margin: auto;
 }
 
 h1 {
     color: white;
     text-align: center;
+    padding: 8%;
+}
+
+div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 
 button {
+    flex: 1 40%;
+    margin: 20px;
     font-size: 16px;
     font-weight: 200;
     letter-spacing: 1px;
@@ -45,9 +54,3 @@ button:hover::after {
     top: 0px;
     left: 0px;  
 }
-
-@media (min-width: 768px) {
-    .button-52 {
-        padding: 13px 50px 13px;
-    }
-  }  
