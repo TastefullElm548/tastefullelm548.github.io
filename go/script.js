@@ -4,14 +4,43 @@ function generaPagina() {
     document.getElementById("titolo").textContent = titolo;
     document.getElementById("pulsante1").textContent = pulsante1;
     document.getElementById("pulsante2").textContent = pulsante2;
+    window.history.replaceState({ id: "100"}, titolo, "/go")
 }
 
 function apriLink(linkToOpen) {
     window.open(linkToOpen);
 }
 
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
 function getParameters() {
-    let urlString = window.location.toString();
+    let urlVar = getCookie("url");
+    if (urlVar == "") {
+        urlString = window.location.toString();
+    } else {
+        urlString = urlVar;
+    }
     let paramString = urlString.split('?')[1];
     if (typeof paramString == "undefined" || paramString == null || paramString == "" ) {
         document.getElementById("body").style.display = "none";
@@ -36,6 +65,6 @@ function getParameters() {
             }
         }
     }
-    window.history.replaceState({ id: "100"}, titolo, "/go")
+    setCookie("url", urlString)
 }
 
