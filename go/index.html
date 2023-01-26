@@ -6,10 +6,13 @@
   <script src="script.js"></script>
 </head>
 <body onload="generaPagina()">
+  <div id="body">
     <h1 id="titolo"></h1>
     <div>
-      <button class="button-52" role="button" id="pulsante1" onclick="apriLink1()"></button>
-      <button class="button-52" role="button" id="pulsante2" onclick="apriLink2()"></button>
+      <button class="button-52" role="button" id="pulsante1" onclick="apriLink(link1)"></button>
+      <button class="button-52" role="button" id="pulsante2" onclick="apriLink(link2)"></button>
     </div>
+  </div>
+  <h1 id="error">Errore! L'url è incompleto o danneggiato!</h1>
 </body>
 </html>
